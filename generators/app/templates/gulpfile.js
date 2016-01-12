@@ -4,7 +4,7 @@ var clean = require('gulp-clean');
 
 gulp.task('ts', function() {
     return gulp.src(["**/*.ts", "!node_modules/**", '!bin/**'], {base: './'})
-        .pipe(ts({ module: 'commonjs' }))
+        .pipe(ts({ module: 'commonjs', noImplicitAny: true }))
         .pipe(gulp.dest('./'));
 });
 
