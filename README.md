@@ -13,8 +13,6 @@ This generator creates project with some fancy tools onboard:
 
 ## Getting Started
 
-### Run the generator
-
 First, install yeoman (if you haven't already)
 
 ```
