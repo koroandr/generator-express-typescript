@@ -34,6 +34,7 @@ module.exports = generators.Base.extend({
             this.directory('routes', 'routes');
             this.directory('typings', 'typings');
             this.directory('views', 'views');
+            this.directory('fixtures', 'fixtures');
         },
         app: function () {
             this.fs.copyTpl(
