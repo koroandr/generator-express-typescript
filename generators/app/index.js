@@ -42,6 +42,14 @@ module.exports = generators.Base.extend({
                 this.destinationPath('package.json'),
                 { appname: _.kebabCase(path.basename(process.cwd())) }
             );
+
+            if (this.answers.docker) {
+                this.fs.copyTpl(
+                    this.templatePath('_Dockerfile'),
+                    this.destinationPath('Dockerfile'),
+                    { builder: this.answers.builder }
+                );
+            }
         },
         projectfiles: function () {
             var generator = this;
@@ -53,10 +61,6 @@ module.exports = generators.Base.extend({
 
             if (this.answers.builder === 'gulp') {
                 files.push('gulpfile.js')
-            }
-
-            if (this.answers.docker) {
-                files.push('Dockerfile');
             }
 
             _.each(
@@ -76,7 +80,12 @@ module.exports = generators.Base.extend({
             var generator = this;
             generator.npmInstall(null, {skipInstall: this.options['skip-install']}, function () {
                 generator.spawnCommandSync('tsd', ['install']); //tsd install --save node
-                //generator.spawnCommandSync('grunt', ['ts']);
+
+                if (generator.answers.builder === 'grunt') {
+                    generator.spawnCommandSync('grunt', ['ts']);
+                } else {
+                    generator.spawnCommandSync('gulp', ['ts']);
+                }
             });
         }
     }
