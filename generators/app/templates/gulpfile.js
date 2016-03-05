@@ -32,7 +32,7 @@ gulp.task('load:fixtures', function (cb) {
 });
 
 gulp.task('server:start', ['ts'], function() {
-    server.listen({path: 'app.js'}, function(error) {
+    server.listen({path: 'bin/www'}, function(error) {
         console.log(error);
     });
 });
