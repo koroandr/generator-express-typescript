@@ -1,6 +1,6 @@
 {
   "name": "generator-express-typescript",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Yeoman generator for Express.js running on Typescript",
   "main": "app/index.js",
   "scripts": {
