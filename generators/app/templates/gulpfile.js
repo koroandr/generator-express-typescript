@@ -23,7 +23,7 @@ gulp.task('clean', function () {
             '!gulpfile.js',
             '!bin/**'
         ], {read: false})
-        .pipe(clean())
+        .pipe(clean());
 });
 
 gulp.task('load:fixtures', function (cb) {
@@ -33,7 +33,9 @@ gulp.task('load:fixtures', function (cb) {
 
 gulp.task('server:start', ['ts'], function() {
     server.listen({path: 'bin/www'}, function(error) {
-        console.log(error);
+        if (error !== null) {
+            console.log(error);
+        }
     });
 });
 
