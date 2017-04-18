@@ -1,11 +1,11 @@
 FROM nodesource/node:4.0
 
-RUN npm install -g tsd
+RUN npm install -g typings
 RUN npm install -g <%= builder %>-cli
 ADD package.json package.json
-ADD tsd.json tsd.json
+ADD typings.json typings.json
 RUN npm install
-RUN tsd install
+RUN typings install
 
 ADD . .
 RUN <%= builder %> ts
