@@ -19,7 +19,7 @@ First, install yeoman (if you haven't already)
 $ npm install -g yo
 ```
 
-Clone down this repo as this is not on npm (yet)
+Clone down this repo as this is not on npm (yet) and run npm install in the repo.
 
 Finally, initiate the generator by reference where you cloned this and answer some simple questions:
 
