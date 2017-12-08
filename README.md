@@ -25,7 +25,6 @@ Finally, initiate the generator by reference where you cloned this and answer so
 
 ```
 $ yo ../generator-express-typescript/generators/app/index.js
-$ 
 ```
 
 Notice, that you should have either grunt or gulp installed globally before launching this generator
