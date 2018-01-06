@@ -7,7 +7,7 @@ module.exports = generators.Base.extend({
         var generator = this;
         var done = this.async();
 
-        this.log('Running Express.js + TypeScript generator')
+        this.log('Running Express.js + TypeScript generator');
 
         this.prompt([
             {
@@ -53,14 +53,14 @@ module.exports = generators.Base.extend({
         },
         projectfiles: function () {
             var generator = this;
-            var files = ['app.ts', 'tsd.json'];
+            var files = ['app.ts', 'typings.json'];
 
             if (this.answers.builder === 'grunt') {
-                files.push('Gruntfile.js')
+                files.push('Gruntfile.js');
             }
 
             if (this.answers.builder === 'gulp') {
-                files.push('gulpfile.js')
+                files.push('gulpfile.js');
             }
 
             _.each(
@@ -69,7 +69,7 @@ module.exports = generators.Base.extend({
                     generator.fs.copy(
                         generator.templatePath(name),
                         generator.destinationPath(name)
-                    )
+                    );
                 }
             );
         }
@@ -79,7 +79,7 @@ module.exports = generators.Base.extend({
         npmInstall: function () {
             var generator = this;
             generator.npmInstall(null, {skipInstall: this.options['skip-install']}, function () {
-                generator.spawnCommandSync('tsd', ['install']); //tsd install --save node
+                generator.spawnCommandSync('typings', ['install']); //typings install --save node
 
                 if (generator.answers.builder === 'grunt') {
                     generator.spawnCommandSync('grunt', ['ts']);

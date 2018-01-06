@@ -19,16 +19,12 @@ First, install yeoman (if you haven't already)
 $ npm install -g yo
 ```
 
-To install generator-express-typescript from npm, run:
+Clone down this repo as this is not on npm (yet) and run npm install in the repo.
+
+Finally, initiate the generator by reference where you cloned this and answer some simple questions:
 
 ```
-$ npm install -g generator-express-typescript
-```
-
-Finally, initiate the generator and answer some simple questions:
-
-```
-$ yo express-typescript
+$ yo ../generator-express-typescript/generators/app/index.js
 ```
 
 Notice, that you should have either grunt or gulp installed globally before launching this generator
